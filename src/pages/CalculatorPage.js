@@ -51,7 +51,6 @@ export const CalculatorPage = () => {
   function change(weight, kg, name) {
     setAll((all) =>
       all.map((obj) => {
-        console.log(obj, name, kg);
         if (obj.label === name) {
           return { ...obj, weight: obj.weight + kg };
         } else {
@@ -90,13 +89,17 @@ export const CalculatorPage = () => {
           </tr>
         </thead>
         <tbody>
-          {all.map((item, i) => (
-            <tr>
-              <td>{i + 1}</td>
-              <td>{item.label}</td>
-              <td>{item.weight.toFixed(2)}</td>
-            </tr>
-          ))}
+          {all.map((item, i) =>
+            item.weight === 0 ? (
+              ""
+            ) : (
+              <tr>
+                <td>{i + 1}</td>
+                <td>{item.label}</td>
+                <td>{item.weight.toFixed(2)}</td>
+              </tr>
+            ),
+          )}
         </tbody>
       </table>
     </div>

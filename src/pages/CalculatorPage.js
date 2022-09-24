@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import Button from "@mui/material/Button";
 import { exactProp } from "@mui/utils";
 import { Salads } from "../components/Salads";
+import { allIngredients } from "../foodData";
 
 export const CalculatorPage = () => {
   const [dishes, setDishes] = useState([]);
@@ -15,7 +16,7 @@ export const CalculatorPage = () => {
   const [visible, setVisible] = useState(false);
   const [button, setButton] = useState(false);
 
-  const [all, setAll] = useState([{ label: "Мясо", weight: 0 }]);
+  const [all, setAll] = useState(allIngredients);
   const countProducts = (e) => {
     setButton(true);
     const allFood = [...dishes, ...salads];
